@@ -1,0 +1,24 @@
+# Binary directories
+.gradle/
+target/
+build/
+out/
+bin/
+tmp/
+
+# Docker / Gradle specific
+plugins/
+*/docker/*
+gradle.properties
+
+# IntelliJ project files
+*.iml
+.idea/
+*.ipr
+*.iws
+
+# Eclipse project files
+.classpath
+.project
+.settings
+Configuration.groovy

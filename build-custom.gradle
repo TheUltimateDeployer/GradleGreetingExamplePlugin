@@ -1,0 +1,15 @@
+buildscript {
+    repositories {
+        mavenLocal()
+    }
+    dependencies {
+        classpath "com.ultimatedeployer.greeting:greeting:0.1-SNAPSHOT"
+    }
+}
+
+apply plugin: 'com.ultimatedeployer.greeting'
+
+greeting{
+    message = 'Hello'
+    target = 'Gradle'
+}

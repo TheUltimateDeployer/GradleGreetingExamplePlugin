@@ -1,0 +1,47 @@
+plugins {
+    id 'groovy'
+    id 'java-gradle-plugin'
+    id 'maven-publish'
+}
+
+group 'com.ultimatedeployer.greeting'
+version '0.1-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+}
+
+dependencies {
+    compile gradleApi()
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.25'
+}
+
+// This plugin creates the static manifest entry in the Jar
+gradlePlugin {
+    plugins {
+        greetingsPlugin {
+            // The id must correspond to the PLUGIN_ID in the GreetingPlugin class
+            id = 'com.ultimatedeployer.greeting'
+            implementationClass = 'com.ultimatedeployer.greeting.GreetingPlugin'
+        }
+    }
+}
+
+// The Jar will be published to the local Maven repository
+// so it can be used in the second build build-custom.gradle
+publishing {
+    publications {
+        pluginPublication (MavenPublication) {
+            from    components.java
+            groupId    project.group
+            artifactId    "greeting"
+            version    project.version
+        }
+    }
+}
+
+build.dependsOn('publishToMavenLocal')
