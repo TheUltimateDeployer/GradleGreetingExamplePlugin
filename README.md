@@ -1,3 +1,6 @@
+### Status
+[![Build Status](https://travis-ci.com/TheUltimateDeployer/GradleGreetingExamplePlugin.svg?branch=master)](https://www.travis-ci.com/TheUltimateDeployer/GradleGreetingExamplePlugin)
+
 ## Gradle Plugin Greeting example
 This repository is intended to demonstrate a round trip usage to develop a Gradle plgun.
 
@@ -10,7 +13,7 @@ There are two execution methods demonstrated in this example:
 #### Building the plugin
 The normal build file creates a Jar and publishes it to the local Maven repository.
 
-Just call: 
+Just call:
 ```./gradlew clean build```
 
 #### Using the plugin
